@@ -148,48 +148,48 @@ The adjunction encodes the lawful cyclical transformation from contradictions to
 
 ### Appendix: Clarifications and Minimal Results
 
-This appendix clarifies measurement, applicability, statistical reporting, and categorical structure to align the manuscript with theory‑paper expectations while preserving its conceptual scope.[^1]
+This appendix clarifies measurement, applicability, statistical reporting, and categorical structure to align the manuscript with theory‑paper expectations while preserving its conceptual scope.
 
 ### A. Measurement protocol (OGI, MEC)
 
-- Define OGI at time $t$ as $OGI(t)=\alpha\cdot Acc(t)+\beta\cdot \log\!\left(\frac{1}{\lVert W(t)\rVert_2+\epsilon}\right)+\gamma\cdot \Phi(\text{Arch}(t))$ with $\alpha,\beta,\gamma>0$ and $\epsilon>0$, where $Acc$ is task performance, $\lVert W\rVert_2$ a capacity proxy, and $\Phi$ an architecture complexity functional, with coefficients fixed ex ante by cross‑validated grid on validation data only.[^1]
-- Define MEC over a window $[t,t+\Delta]$ by $MEC(t)=\frac{\Delta OGI}{\sum_{k=1}^{K} c_k}$ where $\Delta OGI=OGI(t+\Delta)-OGI(t)$ and $c_k$ are metabolic costs for contradiction classes $k$ (e.g., gradient effort, structural edits, data assimilation), each cost standardized to unit variance across runs before aggregation.[^1]
-- Compute $d(OGI)/dt$ as the slope of a robust Theil–Sen estimator over a sliding window of length $L$, reported with median absolute deviation as a dispersion measure to reduce sensitivity to transient shocks.[^1]
-- Report a sensitivity panel in which $(\alpha,\beta,\gamma)$ vary over a simplex grid and cost normalizations vary across z‑score and min–max schemes; declare conclusions robust only if qualitative MEC–adaptation ordering is preserved across at least 80% of settings.[^1]
+- Define OGI at time $t$ as $OGI(t)=\alpha\cdot Acc(t)+\beta\cdot \log\!\left(\frac{1}{\lVert W(t)\rVert_2+\epsilon}\right)+\gamma\cdot \Phi(\text{Arch}(t))$ with $\alpha,\beta,\gamma>0$ and $\epsilon>0$, where $Acc$ is task performance, $\lVert W\rVert_2$ a capacity proxy, and $\Phi$ an architecture complexity functional, with coefficients fixed ex ante by cross‑validated grid on validation data only.
+- Define MEC over a window $[t,t+\Delta]$ by $MEC(t)=\frac{\Delta OGI}{\sum_{k=1}^{K} c_k}$ where $\Delta OGI=OGI(t+\Delta)-OGI(t)$ and $c_k$ are metabolic costs for contradiction classes $k$ (e.g., gradient effort, structural edits, data assimilation), each cost standardized to unit variance across runs before aggregation.
+- Compute $d(OGI)/dt$ as the slope of a robust Theil–Sen estimator over a sliding window of length $L$, reported with median absolute deviation as a dispersion measure to reduce sensitivity to transient shocks.
+- Report a sensitivity panel in which $(\alpha,\beta,\gamma)$ vary over a simplex grid and cost normalizations vary across z‑score and min–max schemes; declare conclusions robust only if qualitative MEC–adaptation ordering is preserved across at least 80% of settings.
 
 
 ### B. Applicability and limits
 
-- The framework applies to discrete‑time lawful systems $\Sigma$ with observable contradiction tokens, an implementable permission function $π(σ)$, and a measurable metabolism map $M(σ,t)$ that updates system state and observables defining $OGI$ and $MEC$ over time.[^1]
-- Necessary conditions include: stationarity of measurement noise within windows, identifiability of contradiction classes, and bounded intervention intensity so that $OGI$ remains within a Lipschitz neighborhood enabling stable slope estimates.[^1]
-- Known failure modes include: unobservable or non‑identifiable contradictions, adversarial interventions that violate bounded‑intensity assumptions, and degenerate systems where $Acc$ is saturated and capacity terms dominate $OGI$ irrespective of adaptation.[^1]
+- The framework applies to discrete‑time lawful systems $\Sigma$ with observable contradiction tokens, an implementable permission function $π(σ)$, and a measurable metabolism map $M(σ,t)$ that updates system state and observables defining $OGI$ and $MEC$ over time.
+- Necessary conditions include: stationarity of measurement noise within windows, identifiability of contradiction classes, and bounded intervention intensity so that $OGI$ remains within a Lipschitz neighborhood enabling stable slope estimates.
+- Known failure modes include: unobservable or non‑identifiable contradictions, adversarial interventions that violate bounded‑intensity assumptions, and degenerate systems where $Acc$ is saturated and capacity terms dominate $OGI$ irrespective of adaptation.
 
 
 ### C. Statistical unification and reporting
 
-- Primary estimator: fit $Adaptation = \theta_0 + \theta_1 \cdot MEC + \varepsilon$ at matched baseline $OGI$ using a robust Huber M‑estimator with HC3 standard errors and report $\hat{\theta}_1$ with 95% CIs, $R^2_{rob}$, and Kendall’s $\tau$ as a rank‑robust secondary metric.[^1]
-- Reconciling prior differences: the manuscript’s $r\approx0.87$ and $r\approx0.780$ arise from distinct runs; hence, report a pooled effect across seeds/architectures with a random‑effects meta‑analytic mean and heterogeneity $I^2$, plus a pre‑registered primary run to anchor interpretability.[^1]
-- Calibration: require that all models included in the comparison are matched to $\pm 0.5$ SD on baseline $OGI$; exclude runs failing this caliper to avoid confounding between raw capacity and efficiency effects.[^1]
+- Primary estimator: fit $Adaptation = \theta_0 + \theta_1 \cdot MEC + \varepsilon$ at matched baseline $OGI$ using a robust Huber M‑estimator with HC3 standard errors and report $\hat{\theta}_1$ with 95% CIs, $R^2_{rob}$, and Kendall’s $\tau$ as a rank‑robust secondary metric.
+- Reconciling prior differences: the manuscript’s $r\approx0.87$ and $r\approx0.780$ arise from distinct runs; hence, report a pooled effect across seeds/architectures with a random‑effects meta‑analytic mean and heterogeneity $I^2$, plus a pre‑registered primary run to anchor interpretability.
+- Calibration: require that all models included in the comparison are matched to $\pm 0.5$ SD on baseline $OGI$; exclude runs failing this caliper to avoid confounding between raw capacity and efficiency effects.
 
 
 ### D. Minimal categorical result
 
-- Category of systems $\mathcal{G}$: objects are tuples $(S, \mathcal{C}, M)$ where $S$ is state space, $\mathcal{C}$ is a complete lattice of contradiction classes, and $M:\mathcal{C}\to End(S)$ assigns metabolism operations; morphisms $f:(S,\mathcal{C},M)\to(S',\mathcal{C}',M')$ preserve contradiction order and intertwine metabolism $f\circ M(c)=M'(h(c))\circ f$ for an order‑embedding $h:\mathcal{C}\to\mathcal{C}'$.[^1]
-- Category of adaptations $\mathcal{A}$: objects are complete lattices $(\mathcal{R},\le)$ of response policies ordered by refinement; morphisms are monotone maps.[^1]
-- Functor $F:\mathcal{G}\to\mathcal{A}$: send $(S,\mathcal{C},M)$ to the poset of response policies ordered by “yields at least as much $OGI$ increase under $M$ for all $c\in\mathcal{C}$”, and send morphisms to policy pushforwards; by construction $F$ preserves arbitrary joins as pointwise suprema of policies.[^1]
-- Theorem (existence of right adjoint): If $F$ preserves arbitrary joins and $\mathcal{A}$ is complete, then $F$ admits a right adjoint $G:\mathcal{A}\to\mathcal{G}$ defined by $G(R)=\sup\{X\in \mathcal{G}\mid F(X)\le R\}$, yielding a Galois connection $F\dashv G$ and an attractor‑style object $X^\star=G(F(X))$ with a unit $X\to X^\star$ that is universal among metabolism‑consistent refinements.[^1]
-- Proof sketch: In complete lattices, any join‑preserving map has a right adjoint given by $G(r)=\sup\{x\mid F(x)\le r\}$; completeness of $\mathcal{G}$ under the policy order and the join‑preservation of $F$ ensure existence, establishing $F(x)\le r \iff x\le G(r)$, which provides the adjunction and the universal property of $X^\star$ as an attractor under refinement.[^1]
+- Category of systems $\mathcal{G}$: objects are tuples $(S, \mathcal{C}, M)$ where $S$ is state space, $\mathcal{C}$ is a complete lattice of contradiction classes, and $M:\mathcal{C}\to End(S)$ assigns metabolism operations; morphisms $f:(S,\mathcal{C},M)\to(S',\mathcal{C}',M')$ preserve contradiction order and intertwine metabolism $f\circ M(c)=M'(h(c))\circ f$ for an order‑embedding $h:\mathcal{C}\to\mathcal{C}'$.
+- Category of adaptations $\mathcal{A}$: objects are complete lattices $(\mathcal{R},\le)$ of response policies ordered by refinement; morphisms are monotone maps.
+- Functor $F:\mathcal{G}\to\mathcal{A}$: send $(S,\mathcal{C},M)$ to the poset of response policies ordered by “yields at least as much $OGI$ increase under $M$ for all $c\in\mathcal{C}$”, and send morphisms to policy pushforwards; by construction $F$ preserves arbitrary joins as pointwise suprema of policies.
+- Theorem (existence of right adjoint): If $F$ preserves arbitrary joins and $\mathcal{A}$ is complete, then $F$ admits a right adjoint $G:\mathcal{A}\to\mathcal{G}$ defined by $G(R)=\sup\{X\in \mathcal{G}\mid F(X)\le R\}$, yielding a Galois connection $F\dashv G$ and an attractor‑style object $X^\star=G(F(X))$ with a unit $X\to X^\star$ that is universal among metabolism‑consistent refinements.
+- Proof sketch: In complete lattices, any join‑preserving map has a right adjoint given by $G(r)=\sup\{x\mid F(x)\le r\}$; completeness of $\mathcal{G}$ under the policy order and the join‑preservation of $F$ ensure existence, establishing $F(x)\le r \iff x\le G(r)$, which provides the adjunction and the universal property of $X^\star$ as an attractor under refinement.
 
 
 ### E. Reproducibility and preregistration
 
-- Preregister a single protocol: data split, window length $L$, $(\alpha,\beta,\gamma)$ grid, cost normalization scheme, robust estimator choice, exclusion criteria, and two primary hypotheses $H_1:\theta_1>0$ and $H_2:\tau>0$ under baseline $OGI$ matching.[^1]
-- Release a minimal artifact: the 128‑point synthetic dataset, Digits case study code, and a script that computes $OGI$, $MEC$, confidence intervals, and sensitivity panels in a single run with a fixed seed for the primary estimate.[^1]
+- Preregister a single protocol: data split, window length $L$, $(\alpha,\beta,\gamma)$ grid, cost normalization scheme, robust estimator choice, exclusion criteria, and two primary hypotheses $H_1:\theta_1>0$ and $H_2:\tau>0$ under baseline $OGI$ matching.
+- Release a minimal artifact: the 128‑point synthetic dataset, Digits case study code, and a script that computes $OGI$, $MEC$, confidence intervals, and sensitivity panels in a single run with a fixed seed for the primary estimate.
 
 
 ### F. Scope disclaimer (for completeness)
 
-- This article is a conceptual/theoretical contribution with formal definitions, operational protocols, and testable predictions; multi‑domain empirical validation and full categorical proofs are future work guided by the procedures and theorem given above.[^1]
+- This article is a conceptual/theoretical contribution with formal definitions, operational protocols, and testable predictions; multi‑domain empirical validation and full categorical proofs are future work guided by the procedures and theorem given above.
 
 
 
