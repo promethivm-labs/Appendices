@@ -144,6 +144,3 @@ The adjunction encodes the lawful cyclical transformation from contradictions to
 
 **Figure reference (Figure 4)**: a five‑stage diagram illustrates detection → permission → metabolism → $\Delta\mathrm{OGI}$ → feedback, with $\Delta\mathrm{OGI}=M(\sigma,t)\,\pi(\sigma)$ as the operational metric for generative transformation.
 
----
-
-If you prefer this as an actual `.md` file, I can add a copy named `Appendix - Generativity as a Universal Principle.md` and keep the original `.txt` as a backup.
