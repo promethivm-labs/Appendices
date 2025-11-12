@@ -140,6 +140,8 @@ $$
 
 5. Positive feedback: increased capacity improves future metabolism (closing the loop).
 
+![O-Loop](image.png)
+
 The adjunction encodes the lawful cyclical transformation from contradictions to flourishing; the unit $\eta$ and counit $\varepsilon$ ensure coherent passage between perspectives. The O‑Loop emphasizes openness ($\pi$) and positive feedback as core to the condition $\mathrm{d}\,/\mathrm{d}t\,\mathrm{OGI}>0$.
 
 **Figure reference (Figure 4)**: a five‑stage diagram illustrates detection → permission → metabolism → $\Delta\mathrm{OGI}$ → feedback, with $\Delta\mathrm{OGI}=M(\sigma,t)\,\pi(\sigma)$ as the operational metric for generative transformation.
